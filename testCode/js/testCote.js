@@ -10,9 +10,9 @@ var manifest = [
         data: {
             channels: 5,
             audioSprite: [
-                { id: "se_0", startTime: 4000, duration: 2600 },
-                { id: "se_1", startTime: 8000, duration: 2600 },
-                { id: "se_2", startTime: 12000, duration: 2600 }
+                { id: "se_0", startTime: 0, duration: 2600 },
+                { id: "se_1", startTime: 4000, duration: 2600 },
+                { id: "se_2", startTime: 8000, duration: 2600 }
             ]
         }
     }
