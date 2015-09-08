@@ -34,6 +34,7 @@ function fileLoadHandler() {
  * 指定のIDの音を鳴らす
  */
 function playSound(soundID) {
+    // パンを設定しているのは、Google Chromeで音が片方からしか聞こえないバグの対応のため
     createjs.Sound.play(soundID, { pan: 0.01 });
 }
 //# sourceMappingURL=testCote.js.map

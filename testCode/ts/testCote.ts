@@ -8,7 +8,7 @@ var manifest = [
     {
         src: "sounds/150903.ogg",
         data: {
-            channels: 5,
+            channels: 5,    // 同時に鳴らす音の数
             audioSprite: [
                 {id: "se_0", startTime: 0, duration: 2600},
                 {id: "se_1", startTime: 4000, duration: 2600},
@@ -36,6 +36,7 @@ function fileLoadHandler():void {
  * 指定のIDの音を鳴らす
  */
 function playSound(soundID):void {
+    // パンを設定しているのは、Google Chromeで音が片方からしか聞こえないバグの対応のため
     createjs.Sound.play(soundID, {pan: 0.01});
 }
 
