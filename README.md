@@ -13,12 +13,10 @@ info_html/
 |     ├── sounds------ 各音声ファイル。オーディオスプライトはYYMMDD.ogg,YYMMDD.mp3
 |     ├── ts----TypeScriptファイル。ver1.5.3で記述
 |     └── typings----TypeScript 型定義用ファイル
-|      
 ├── testCode ---------------- オーディオスプライト単体テスト用のソースコード。構成はsrcと同じ
 ├── gulpfile.js ------------- 自動タスク（Gulp）用定義ファイル
-├── package.json -------- Node モジュールバージョン管理ファイル（npm 用）
-└── styleguide-template - CSSスタイルガイド用テンプレート
+└── package.json -------- Node モジュールバージョン管理ファイル（npm 用）
 ```
 
 # LICENSE
-[LICENSE](https://github.com/ics-creative/150908_pentatonic_particles/LICENSE)
+[LICENSE](https://github.com/ics-creative/150908_pentatonic_particles/blob/master/LICENSE)
