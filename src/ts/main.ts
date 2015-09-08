@@ -9,7 +9,7 @@ declare var isAudioSprite:boolean;
 declare var WebFont:any;
 
 namespace project {
-    /*
+    /**
     * メインとなるクラス
     */
     export class Main {
@@ -89,7 +89,7 @@ namespace project {
             this.startPreload(soundManifest);
         }
 
-        /*
+        /**
          * プリロードを開始する
          */
         private startPreload(soundManifest:Object[]):void {

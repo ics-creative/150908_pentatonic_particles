@@ -21,7 +21,7 @@ var manifest = [
 createjs.Sound.registerSounds(manifest);
 // ファイル読み込み時の処理を設定
 createjs.Sound.addEventListener("fileload", function () { return _this.fileLoadHandler(); });
-/*
+/**
  * ファイルの読み込み完了時に実行される関数
  */
 function fileLoadHandler() {
@@ -30,7 +30,7 @@ function fileLoadHandler() {
     document.getElementById("button2").addEventListener("click", function () { return _this.playSound("se_1"); });
     document.getElementById("button3").addEventListener("click", function () { return _this.playSound("se_2"); });
 }
-/*
+/**
  * 指定のIDの音を鳴らす
  */
 function playSound(soundID) {

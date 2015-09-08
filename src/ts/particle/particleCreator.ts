@@ -3,7 +3,7 @@
 /// <reference path="particleContainer.ts" />
 
 namespace project.particle {
-    /*
+    /**
      * パーティクルモーションのクラス
      */
     export class ParticleCreator {
@@ -32,7 +32,7 @@ namespace project.particle {
             window.addEventListener("resize", () => this.resizeHandler());
         }
 
-        /*
+        /**
          * 強制リサイズ処理
          */
         public forceResizeHandler():void {
@@ -41,14 +41,14 @@ namespace project.particle {
                 this._stage.update();
         }
 
-        /*
+        /**
          * アニメーションの開始
          */
         public start():void {
             createjs.Ticker.addEventListener("tick", (event) => this.tickeHandler(event));
         }
 
-        /*
+        /**
          * Tick Handler
          */
         private tickeHandler(event):void {
@@ -57,9 +57,9 @@ namespace project.particle {
             }
         }
 
-        /*
+        /**
          * リサイズのイベント処理
-         * */
+         */
         private resizeHandler():void {
             let windowWidth:number = window.innerWidth;
             let windowHeight:number = window.innerHeight;

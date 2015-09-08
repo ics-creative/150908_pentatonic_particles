@@ -2,7 +2,7 @@
 /// <reference path="../main.ts" />
 
 namespace project {
-    /*
+    /**
      * ローディングバーを進めるタスク
      */
     export class ProgressLoadingBarTask {

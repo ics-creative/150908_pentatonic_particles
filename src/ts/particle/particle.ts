@@ -1,7 +1,7 @@
 /// <reference path="../../typings/easeljs/easeljs.d.ts" />
 
 namespace project.particle {
-    /*
+    /**
      * パーティクルのクラス
      */
     export class Particle extends createjs.Text {
@@ -46,10 +46,10 @@ namespace project.particle {
         }
 
 
-        /*
+        /**
          * パーティクルの初期化
          * @param parentVX, parentVY :親コンテナの速度。パーティクルの速度に影響を与える。
-         * */
+         */
         public init(emitX:number, emitY:number, parentVX:number, parentVY:number, particleColor:string):void {
             this.x = emitX;
             this.y = emitY;
@@ -63,12 +63,12 @@ namespace project.particle {
             this.color = particleColor;
         }
 
-        /*
+        /**
          * パーティクルの時間経過処理。
          * _countがパーティクルの年齢。
          * _lifeを超えたら死亡する。
          *
-         * */
+         */
         update():void {
             this._count++;
             if (this._count <= this._life) {

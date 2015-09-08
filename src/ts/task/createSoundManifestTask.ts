@@ -1,7 +1,7 @@
 /// <reference path="../param.ts" />
 
 namespace project {
-    /*
+    /**
      * 各オーディオファイル用のSoundManifestをつくるためのタスク
      */
     export class CreateSoundManifestTask {
@@ -10,7 +10,7 @@ namespace project {
             return soundManifest;
         }
 
-        /*
+        /**
          * Soundファイル用マニフェストを作成する
          */
         private createSoundManifest():Object[] {

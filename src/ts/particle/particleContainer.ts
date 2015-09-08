@@ -5,7 +5,7 @@
 /// <reference path="particleLineDrawer.ts" />
 
 namespace project.particle {
-    /*
+    /**
      * パーティクルを発生させるコンテナ
      */
     export class ParticleContainer extends createjs.Container {
@@ -40,9 +40,9 @@ namespace project.particle {
             this.drawBG(windowWidth, windowHeight);
         }
 
-        /*
+        /**
          * 指定の大きさの背景を描画
-         * */
+         */
         private drawBG(bgWidth:number, bgHeight:number):void {
             this._bg.graphics.clear();
             this._bg.graphics.beginLinearGradientFill(["#011c31", "#001121"], [0, 1], 0, 0, 0, bgHeight)
@@ -50,23 +50,23 @@ namespace project.particle {
                 .endFill();
         }
 
-        /*
+        /**
          * マウスを押した時の処理
          */
         private mouseDownHandler(event):void {
             this._isMouseDown = true;
         }
 
-        /*
+        /**
          * マウスを離した時の処理
          */
         private mouseUpHandler(event):void {
             this._isMouseDown = false;
         }
 
-        /*
+        /**
          * Tickイベントで実行される処理
-         * */
+         */
         private tickHandler(event):void {
 
 
@@ -100,7 +100,7 @@ namespace project.particle {
             this._lineDrawer.update(this._particleEmitter.particleColor);
         }
 
-        /*
+        /**
          * 効果音を鳴らす
          */
         private playSE():void {

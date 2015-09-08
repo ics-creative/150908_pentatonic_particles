@@ -2,7 +2,7 @@
 /// <reference path="particle.ts" />
 
 namespace project.particle {
-    /*
+    /**
      * パーティクル発生装置
      */
     export class ParticleEmitter extends createjs.Container {
@@ -29,9 +29,9 @@ namespace project.particle {
             this.vy = 0;
         }
 
-        /*
+        /**
          * MainLayerのtickイベント毎に実行される処理
-         * */
+         */
         public update(goalX:number, goalY:number) {
             // 発生装置はgoalに徐々に近づいていく。
             let dx:number = goalX - this.emitX;
@@ -46,9 +46,9 @@ namespace project.particle {
             this.updateParticles();
         }
 
-        /*
+        /**
          *　パーティクルを発生させる
-         * */
+         */
         public emitParticle():void {
 
             this.updateParticleColor();
@@ -69,9 +69,9 @@ namespace project.particle {
             this.particleColor = colorHSL;
         }
 
-        /*
+        /**
          *　パーティクルのアニメーション
-         * */
+         */
         private updateParticles():void {
             let windowWidth:number = window.innerWidth;
             let windowHeight:number = window.innerHeight;
@@ -103,10 +103,10 @@ namespace project.particle {
             }
         }
 
-        /*
+        /**
          * オブジェクトプールからパーティクルを取得。
          * プールにパーティクルが無ければ新規作成
-         * */
+         */
         private getParticle():Particle {
             if (this._particlePool.length > 0) {
                 return this._particlePool.shift();
@@ -116,9 +116,9 @@ namespace project.particle {
             }
         }
 
-        /*
+        /**
          * パーティクルを取り除く。
-         * */
+         */
         private removeParticle(particle:Particle, animationIndex:number):void {
             // Containerからパーティクルをremove
             this.removeChild(particle);

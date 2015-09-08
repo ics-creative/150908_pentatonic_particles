@@ -1,29 +1,29 @@
 namespace project {
-    /*
+    /**
      * プロジェクト内で使う各値を管理するクラス
      */
     export class Param {
-        /* SEの数 */
+        /** SEの数 */
         static SE_NUM:number = 21;
-        /* SEとSEの間隔 */
+        /** SEとSEの間隔 */
         static SE_STEP:number = 4000;
-        /* 各SEの長さ */
+        /** 各SEの長さ */
         static SE_DURATION:number = 2600;
-        /* 同時に鳴らす音の数 */
+        /** 同時に鳴らす音の数 */
         static SOUNDS_CHANNEL:number = 50;
-        /* 音ファイルのフォルダ */
+        /** 音ファイルのフォルダ */
         static SOUNDS_FOLDER:string = "sounds/";
-        /* BGMの長さ */
+        /** BGMの長さ */
         static BGM_DURATION:number = 16 * 1000;
-        /* BGのID */
+        /** BGのID */
         static BGM_ID:string = "bgm";
-        /* iOSかどうか */
+        /** iOSかどうか */
         static isIOS:boolean = false;
-        /* Androidかどうか */
+        /** Androidかどうか */
         static isAndroid:boolean = false;
-        /* HTMLAudioかどうか */
+        /** HTMLAudioかどうか */
         static isHTMLAudio:boolean = false;
-        /* ローパフォーマンスモードかどうか */
+        /** ローパフォーマンスモードかどうか */
         static lowPerformance:boolean = false;
     }
 }

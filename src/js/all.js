@@ -1,32 +1,32 @@
 var project;
 (function (project) {
-    /*
+    /**
      * プロジェクト内で使う各値を管理するクラス
      */
     var Param = (function () {
         function Param() {
         }
-        /* SEの数 */
+        /** SEの数 */
         Param.SE_NUM = 21;
-        /* SEとSEの間隔 */
+        /** SEとSEの間隔 */
         Param.SE_STEP = 4000;
-        /* 各SEの長さ */
+        /** 各SEの長さ */
         Param.SE_DURATION = 2600;
-        /* 同時に鳴らす音の数 */
+        /** 同時に鳴らす音の数 */
         Param.SOUNDS_CHANNEL = 50;
-        /* 音ファイルのフォルダ */
+        /** 音ファイルのフォルダ */
         Param.SOUNDS_FOLDER = "sounds/";
-        /* BGMの長さ */
+        /** BGMの長さ */
         Param.BGM_DURATION = 16 * 1000;
-        /* BGのID */
+        /** BGのID */
         Param.BGM_ID = "bgm";
-        /* iOSかどうか */
+        /** iOSかどうか */
         Param.isIOS = false;
-        /* Androidかどうか */
+        /** Androidかどうか */
         Param.isAndroid = false;
-        /* HTMLAudioかどうか */
+        /** HTMLAudioかどうか */
         Param.isHTMLAudio = false;
-        /* ローパフォーマンスモードかどうか */
+        /** ローパフォーマンスモードかどうか */
         Param.lowPerformance = false;
         return Param;
     })();
@@ -35,7 +35,7 @@ var project;
 /// <reference path="../param.ts" />
 var project;
 (function (project) {
-    /*
+    /**
      * AudioSprite用のSoundManifestをつくるためのタスク
      */
     var CreateAudioSpriteManifestTask = (function () {
@@ -46,7 +46,7 @@ var project;
             var soundManifest = this.createSoundManifest();
             return soundManifest;
         };
-        /*
+        /**
          * Soundファイル用マニフェストを作成する
          */
         CreateAudioSpriteManifestTask.prototype.createSoundManifest = function () {
@@ -62,7 +62,7 @@ var project;
             ];
             return manifest;
         };
-        /*
+        /**
          * SEデータを準備する
          */
         CreateAudioSpriteManifestTask.prototype.prepareSE = function () {
@@ -89,7 +89,7 @@ var project;
 /// <reference path="../param.ts" />
 var project;
 (function (project) {
-    /*
+    /**
      * 各オーディオファイル用のSoundManifestをつくるためのタスク
      */
     var CreateSoundManifestTask = (function () {
@@ -99,7 +99,7 @@ var project;
             var soundManifest = this.createSoundManifest();
             return soundManifest;
         };
-        /*
+        /**
          * Soundファイル用マニフェストを作成する
          */
         CreateSoundManifestTask.prototype.createSoundManifest = function () {
@@ -126,7 +126,7 @@ var project;
 /// <reference path="../main.ts" />
 var project;
 (function (project) {
-    /*
+    /**
      * ローディングバーを進めるタスク
      */
     var ProgressLoadingBarTask = (function () {
@@ -170,7 +170,7 @@ var project;
 (function (project) {
     var particle;
     (function (particle) {
-        /*
+        /**
          * パーティクルのクラス
          */
         var Particle = (function (_super) {
@@ -202,10 +202,10 @@ var project;
                 // CreateJS のテキストを作成
                 return iconStr;
             };
-            /*
+            /**
              * パーティクルの初期化
              * @param parentVX, parentVY :親コンテナの速度。パーティクルの速度に影響を与える。
-             * */
+             */
             Particle.prototype.init = function (emitX, emitY, parentVX, parentVY, particleColor) {
                 this.x = emitX;
                 this.y = emitY;
@@ -218,12 +218,12 @@ var project;
                 this.rotation = 50 * Math.PI * (Math.random() - 0.5);
                 this.color = particleColor;
             };
-            /*
+            /**
              * パーティクルの時間経過処理。
              * _countがパーティクルの年齢。
              * _lifeを超えたら死亡する。
              *
-             * */
+             */
             Particle.prototype.update = function () {
                 this._count++;
                 if (this._count <= this._life) {
@@ -250,7 +250,7 @@ var project;
 (function (project) {
     var particle;
     (function (particle_1) {
-        /*
+        /**
          * パーティクル発生装置
          */
         var ParticleEmitter = (function (_super) {
@@ -266,9 +266,9 @@ var project;
                 this.vx = 0;
                 this.vy = 0;
             }
-            /*
+            /**
              * MainLayerのtickイベント毎に実行される処理
-             * */
+             */
             ParticleEmitter.prototype.update = function (goalX, goalY) {
                 // 発生装置はgoalに徐々に近づいていく。
                 var dx = goalX - this.emitX;
@@ -282,9 +282,9 @@ var project;
                 // アニメーション中のパーティクルの状態を更新
                 this.updateParticles();
             };
-            /*
+            /**
              *　パーティクルを発生させる
-             * */
+             */
             ParticleEmitter.prototype.emitParticle = function () {
                 this.updateParticleColor();
                 var particle = this.getParticle();
@@ -297,9 +297,9 @@ var project;
                 var colorHSL = createjs.Graphics.getHSL(new Date().getTime() / 20 + Math.random() * 60, 90 + Math.random() * 10, 50 + Math.random() * 10);
                 this.particleColor = colorHSL;
             };
-            /*
+            /**
              *　パーティクルのアニメーション
-             * */
+             */
             ParticleEmitter.prototype.updateParticles = function () {
                 var windowWidth = window.innerWidth;
                 var windowHeight = window.innerHeight;
@@ -330,10 +330,10 @@ var project;
                     }
                 }
             };
-            /*
+            /**
              * オブジェクトプールからパーティクルを取得。
              * プールにパーティクルが無ければ新規作成
-             * */
+             */
             ParticleEmitter.prototype.getParticle = function () {
                 if (this._particlePool.length > 0) {
                     return this._particlePool.shift();
@@ -342,9 +342,9 @@ var project;
                     return new particle_1.Particle();
                 }
             };
-            /*
+            /**
              * パーティクルを取り除く。
-             * */
+             */
             ParticleEmitter.prototype.removeParticle = function (particle, animationIndex) {
                 // Containerからパーティクルをremove
                 this.removeChild(particle);
@@ -365,7 +365,7 @@ var project;
 (function (project) {
     var particle;
     (function (particle) {
-        /*
+        /**
          * 軌跡を描くクラス
          */
         var LineDrawer = (function (_super) {
@@ -421,7 +421,7 @@ var project;
 (function (project) {
     var particle;
     (function (particle) {
-        /*
+        /**
          * パーティクルを発生させるコンテナ
          */
         var ParticleContainer = (function (_super) {
@@ -448,30 +448,30 @@ var project;
             ParticleContainer.prototype.resizeHandler = function (windowWidth, windowHeight) {
                 this.drawBG(windowWidth, windowHeight);
             };
-            /*
+            /**
              * 指定の大きさの背景を描画
-             * */
+             */
             ParticleContainer.prototype.drawBG = function (bgWidth, bgHeight) {
                 this._bg.graphics.clear();
                 this._bg.graphics.beginLinearGradientFill(["#011c31", "#001121"], [0, 1], 0, 0, 0, bgHeight)
                     .drawRect(0, 0, bgWidth, bgHeight)
                     .endFill();
             };
-            /*
+            /**
              * マウスを押した時の処理
              */
             ParticleContainer.prototype.mouseDownHandler = function (event) {
                 this._isMouseDown = true;
             };
-            /*
+            /**
              * マウスを離した時の処理
              */
             ParticleContainer.prototype.mouseUpHandler = function (event) {
                 this._isMouseDown = false;
             };
-            /*
+            /**
              * Tickイベントで実行される処理
-             * */
+             */
             ParticleContainer.prototype.tickHandler = function (event) {
                 // マウスの座標
                 var mouseX = this.getStage().mouseX;
@@ -493,7 +493,7 @@ var project;
                 this._tickCount++;
                 this._lineDrawer.update(this._particleEmitter.particleColor);
             };
-            /*
+            /**
              * 効果音を鳴らす
              */
             ParticleContainer.prototype.playSE = function () {
@@ -515,7 +515,7 @@ var project;
 (function (project) {
     var particle;
     (function (particle) {
-        /*
+        /**
          * パーティクルモーションのクラス
          */
         var ParticleCreator = (function () {
@@ -536,7 +536,7 @@ var project;
                 this.resizeHandler();
                 window.addEventListener("resize", function () { return _this.resizeHandler(); });
             }
-            /*
+            /**
              * 強制リサイズ処理
              */
             ParticleCreator.prototype.forceResizeHandler = function () {
@@ -544,14 +544,14 @@ var project;
                 if (this._stage)
                     this._stage.update();
             };
-            /*
+            /**
              * アニメーションの開始
              */
             ParticleCreator.prototype.start = function () {
                 var _this = this;
                 createjs.Ticker.addEventListener("tick", function (event) { return _this.tickeHandler(event); });
             };
-            /*
+            /**
              * Tick Handler
              */
             ParticleCreator.prototype.tickeHandler = function (event) {
@@ -559,9 +559,9 @@ var project;
                     this._stage.update();
                 }
             };
-            /*
+            /**
              * リサイズのイベント処理
-             * */
+             */
             ParticleCreator.prototype.resizeHandler = function () {
                 var windowWidth = window.innerWidth;
                 var windowHeight = window.innerHeight;
@@ -607,7 +607,7 @@ var project;
 createjs.Sound.initializeDefaultPlugins();
 var project;
 (function (project) {
-    /*
+    /**
     * メインとなるクラス
     */
     var Main = (function () {
@@ -668,7 +668,7 @@ var project;
             });
             this.startPreload(soundManifest);
         };
-        /*
+        /**
          * プリロードを開始する
          */
         Main.prototype.startPreload = function (soundManifest) {

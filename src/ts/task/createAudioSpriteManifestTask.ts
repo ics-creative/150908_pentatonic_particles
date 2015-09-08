@@ -1,6 +1,6 @@
 /// <reference path="../param.ts" />
 namespace project {
-    /*
+    /**
      * AudioSprite用のSoundManifestをつくるためのタスク
      */
     export class CreateAudioSpriteManifestTask {
@@ -11,7 +11,7 @@ namespace project {
             return soundManifest;
         }
 
-        /*
+        /**
          * Soundファイル用マニフェストを作成する
          */
         private createSoundManifest():Object[] {
@@ -28,7 +28,7 @@ namespace project {
             return manifest;
         }
 
-        /*
+        /**
          * SEデータを準備する
          */
         private prepareSE():Object[] {
