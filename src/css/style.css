@@ -27,6 +27,17 @@ h2 {
   top: 44px;
   font-size: 1.1rem; }
 
+#downloadInfo,
+#contentsInfo {
+  position: absolute;
+  bottom: 10px; }
+
+#downloadInfo {
+  left: 10px; }
+
+#contentsInfo {
+  right: 20px; }
+
 #myCanvas {
   background-color: #000; }
 
@@ -72,11 +83,6 @@ h2 {
     cursor: pointer; }
     #progressBarLayer.on #playButton {
       opacity: 1; }
-
-#contentsInfo {
-  position: absolute;
-  bottom: 20px;
-  right: 20px; }
 
 /*!
  *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome

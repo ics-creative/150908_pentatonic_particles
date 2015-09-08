@@ -15,8 +15,11 @@ namespace project {
     export class Main {
         private _particleCreator:particle.ParticleCreator;
         private _loadingBarTask:ProgressLoadingBarTask;
+        private _startTime:Date;
+        private _endTime:Date;
 
         constructor() {
+            this._startTime = new Date();
             this._particleCreator = new particle.ParticleCreator();
             this._particleCreator.forceResizeHandler();
             this._loadingBarTask = new ProgressLoadingBarTask(this);
@@ -51,6 +54,7 @@ namespace project {
             let activePlugin:string = createjs.Sound.activePlugin.toString();
             if (activePlugin.indexOf("HTMLAudio") > 0)
                 Param.isHTMLAudio = true;
+
 
             if (Param.isAndroid || Param.isIOS)
                 Param.lowPerformance = true;
@@ -102,12 +106,21 @@ namespace project {
         }
 
         private loadComplete(event:createjs.Event):void {
+            this.showDownLoadInfo();
             this._loadingBarTask.completeHandler();
         }
 
         public start():void
         {
             this._particleCreator.start();
+        }
+
+        private showDownLoadInfo():void
+        {
+            this._endTime = new Date();
+            let downloadTime:number = (this._endTime.getTime() - this._startTime.getTime()) / 1000;
+            let downloadInfo:HTMLDivElement = <HTMLDivElement> document.getElementById("downloadInfo");
+            downloadInfo.innerHTML = "DL Time : " + downloadTime.toFixed(1) + "s";
         }
     }
 }

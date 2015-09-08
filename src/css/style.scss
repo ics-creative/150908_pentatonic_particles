@@ -31,8 +31,25 @@ h1 {
 h2 {
   top: 44px;
   font-size: 1.1rem;
-
 }
+
+
+#downloadInfo,
+#contentsInfo
+{
+  position: absolute;
+  bottom: 10px;
+}
+
+#downloadInfo
+{
+  left: 10px;
+}
+#contentsInfo
+{
+  right: 20px;
+}
+
 
 
 
@@ -108,13 +125,6 @@ $buttonSize: 120;
     }
   }
 
-}
-
-#contentsInfo
-{
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
 }
 
 /*!

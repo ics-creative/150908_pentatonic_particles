@@ -612,6 +612,7 @@ var project;
     */
     var Main = (function () {
         function Main() {
+            this._startTime = new Date();
             this._particleCreator = new project.particle.ParticleCreator();
             this._particleCreator.forceResizeHandler();
             this._loadingBarTask = new project.ProgressLoadingBarTask(this);
@@ -683,10 +684,17 @@ var project;
             this._loadingBarTask.update(event.progress);
         };
         Main.prototype.loadComplete = function (event) {
+            this.showDownLoadInfo();
             this._loadingBarTask.completeHandler();
         };
         Main.prototype.start = function () {
             this._particleCreator.start();
+        };
+        Main.prototype.showDownLoadInfo = function () {
+            this._endTime = new Date();
+            var downloadTime = (this._endTime.getTime() - this._startTime.getTime()) / 1000;
+            var downloadInfo = document.getElementById("downloadInfo");
+            downloadInfo.innerHTML = "DL Time : " + downloadTime.toFixed(1) + "s";
         };
         return Main;
     })();
