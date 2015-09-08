@@ -5,10 +5,9 @@
 /// <reference path="particleLineDrawer.ts" />
 
 namespace project.particle {
-
     /*
      * パーティクルを発生させるコンテナ
-     * */
+     */
     export class ParticleContainer extends createjs.Container {
         private _isMouseDown:boolean;   // マウスが押されているかどうか
         private _particleEmitter:ParticleEmitter;   // パーティクル発生装置のインスタンス

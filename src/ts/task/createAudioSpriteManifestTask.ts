@@ -1,6 +1,5 @@
 /// <reference path="../param.ts" />
 namespace project {
-
     /*
      * AudioSprite用のSoundManifestをつくるためのタスク
      */

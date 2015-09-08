@@ -2,6 +2,9 @@
 /// <reference path="../main.ts" />
 
 namespace project {
+    /*
+     * ローディングバーを進めるタスク
+     */
     export class ProgressLoadingBarTask {
         private _main:Main;
         private _progressBarLayer:HTMLDivElement;

@@ -1,9 +1,8 @@
 /// <reference path="../../typings/easeljs/easeljs.d.ts" />
 
 namespace project.particle {
-
     /*
-     * 軌跡を描く
+     * 軌跡を描くクラス
      */
     export class LineDrawer extends createjs.Shape {
         private _linePoint:LinePointData[];
