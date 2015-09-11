@@ -16,12 +16,10 @@ namespace project.particle {
         public addLinePoint(emitX:number, emitY:number):void {
             let linePoint:LinePointData = new LinePointData(emitX, emitY);
             this._linePoint.push(linePoint);
-
         }
 
         public shiftLinePoint():void {
             this._linePoint.shift();
-
         }
 
         public update(particleColor:string):void {
@@ -44,7 +42,6 @@ namespace project.particle {
                 this._linePoint.shift();
             }
         }
-
     }
 
     class LinePointData {
@@ -56,5 +53,4 @@ namespace project.particle {
             this.y = emitY;
         }
     }
-
 }

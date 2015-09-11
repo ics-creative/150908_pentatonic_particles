@@ -47,7 +47,7 @@ namespace project {
                 id: Param.BGM_ID,
                 startTime: Param.SE_STEP * Param.SE_NUM,
                 duration: Param.BGM_DURATION
-            }
+            };
 
             return allSEData;
         }

@@ -68,9 +68,6 @@ namespace project.particle {
          * Tickイベントで実行される処理
          */
         private tickHandler(event):void {
-
-
-
             // マウスの座標
             let mouseX:number = this.getStage().mouseX;
             let mouseY:number = this.getStage().mouseY;
@@ -85,7 +82,6 @@ namespace project.particle {
                 }
 
                 this.playSE();
-
 
                 this._lineDrawer.addLinePoint(
                     this._particleEmitter.emitX,
@@ -112,5 +108,3 @@ namespace project.particle {
         }
     }
 }
-
-

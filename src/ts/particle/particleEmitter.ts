@@ -6,20 +6,20 @@ namespace project.particle {
      * パーティクル発生装置
      */
     export class ParticleEmitter extends createjs.Container {
-        // パーティクルの発生座標。発生装置そのものの座標ではない。
+        /** パーティクルの発生座標X */
         public emitX:number;
+        /** パーティクルの発生座標Y */
         public emitY:number;
-        // 発生座標に近づく速度
+        /** 発生座標に近づく速度X */
         public vx:number;
+        /** 発生座標に近づく速度Y */
         public vy:number;
-
+        /** パーティクル色 */
         public particleColor:string;
-
-        // アニメーション中のパーティクルを格納する配列
+        /** アニメーション中のパーティクルを格納する配列 */
         private _animationParticles:Particle[] = [];
-        // パーティクルのオブジェクトプール。アニメーションがされていないパーティクルがここに待機している。
+        /** パーティクルのオブジェクトプール。アニメーションがされていないパーティクルがここに待機している */
         private _particlePool:Particle[] = [];
-
 
         public constructor() {
             super();
@@ -50,7 +50,6 @@ namespace project.particle {
          *　パーティクルを発生させる
          */
         public emitParticle():void {
-
             this.updateParticleColor();
             let particle:Particle = this.getParticle();
             particle.init(this.emitX, this.emitY, this.vx, this.vy, this.particleColor);
@@ -58,7 +57,6 @@ namespace project.particle {
             // アニメーション中のパーティクルとして設定
             this._animationParticles.push(particle);
         }
-
 
         private updateParticleColor():void {
             let colorHSL:string = createjs.Graphics.getHSL(
@@ -108,12 +106,10 @@ namespace project.particle {
          * プールにパーティクルが無ければ新規作成
          */
         private getParticle():Particle {
-            if (this._particlePool.length > 0) {
+            if (this._particlePool.length > 0)
                 return this._particlePool.shift();
-            }
-            else {
+            else
                 return new Particle();
-            }
         }
 
         /**

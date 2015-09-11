@@ -257,9 +257,9 @@ var project;
             __extends(ParticleEmitter, _super);
             function ParticleEmitter() {
                 _super.call(this);
-                // アニメーション中のパーティクルを格納する配列
+                /** アニメーション中のパーティクルを格納する配列 */
                 this._animationParticles = [];
-                // パーティクルのオブジェクトプール。アニメーションがされていないパーティクルがここに待機している。
+                /** パーティクルのオブジェクトプール。アニメーションがされていないパーティクルがここに待機している */
                 this._particlePool = [];
                 this.emitX = 0;
                 this.emitY = 0;
@@ -335,12 +335,10 @@ var project;
              * プールにパーティクルが無ければ新規作成
              */
             ParticleEmitter.prototype.getParticle = function () {
-                if (this._particlePool.length > 0) {
+                if (this._particlePool.length > 0)
                     return this._particlePool.shift();
-                }
-                else {
+                else
                     return new particle_1.Particle();
-                }
             };
             /**
              * パーティクルを取り除く。
@@ -555,9 +553,8 @@ var project;
              * Tick Handler
              */
             ParticleCreator.prototype.tickeHandler = function (event) {
-                if (!event.paused) {
+                if (!event.paused)
                     this._stage.update();
-                }
             };
             /**
              * リサイズのイベント処理
@@ -608,8 +605,8 @@ createjs.Sound.initializeDefaultPlugins();
 var project;
 (function (project) {
     /**
-    * メインとなるクラス
-    */
+     * メインとなるクラス
+     */
     var Main = (function () {
         function Main() {
             this._startTime = new Date();
@@ -619,6 +616,9 @@ var project;
             createjs.Sound.alternateExtensions = ["mp3"];
             this.showContentsInfo();
         }
+        /**
+         * コンテンツの情報を表示する
+         */
         Main.prototype.showContentsInfo = function () {
             this.checkDeviceInfo();
             this.checkLowPerformanceMode();
@@ -628,6 +628,9 @@ var project;
                 contentsInfoText += "<br>Low Performance Mode";
             contentsInfo.innerHTML = contentsInfoText;
         };
+        /**
+         * 閲覧環境をチェックする
+         */
         Main.prototype.checkDeviceInfo = function () {
             var ua = navigator.userAgent;
             if (ua.indexOf("iPhone") > 0 || ua.indexOf("iPad") > 0 || ua.indexOf("iPod") > 0)
@@ -635,6 +638,10 @@ var project;
             else if (ua.indexOf("Android") > 0)
                 project.Param.isAndroid = true;
         };
+        /**
+         * 低パフォーマンスで動作させるかどうかを決定する
+         * iOS、Androidの場合は低パフォーマンスモード
+         */
         Main.prototype.checkLowPerformanceMode = function () {
             var contentsInfo = document.getElementById("contentsInfo");
             var activePlugin = createjs.Sound.activePlugin.toString();
@@ -690,6 +697,9 @@ var project;
         Main.prototype.start = function () {
             this._particleCreator.start();
         };
+        /*
+        * ダウンロード情報を表示する。
+        */
         Main.prototype.showDownLoadInfo = function () {
             this._endTime = new Date();
             var downloadTime = (this._endTime.getTime() - this._startTime.getTime()) / 1000;

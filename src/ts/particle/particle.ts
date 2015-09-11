@@ -42,9 +42,7 @@ namespace project.particle {
             let iconStr = String.fromCharCode(iconInt);
             // CreateJS のテキストを作成
             return iconStr;
-
         }
-
 
         /**
          * パーティクルの初期化

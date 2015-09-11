@@ -7,10 +7,12 @@ namespace project.particle {
      * パーティクルモーションのクラス
      */
     export class ParticleCreator {
-        private _stage:createjs.Stage;  // ステージ
-        private _canvas:HTMLCanvasElement;  // ステージ
-
-        private _mainLayer:ParticleContainer;   // メインのレイヤー
+        /** ステージ */
+        private _stage:createjs.Stage;
+        /** Canvasエレメント */
+        private _canvas:HTMLCanvasElement;
+        /** メインのレイヤー */
+        private _mainLayer:ParticleContainer;
 
         public constructor() {
             // ステージを準備
@@ -52,9 +54,8 @@ namespace project.particle {
          * Tick Handler
          */
         private tickeHandler(event):void {
-            if (!event.paused) {
+            if (!event.paused)
                 this._stage.update();
-            }
         }
 
         /**

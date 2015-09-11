@@ -10,8 +10,8 @@ declare var WebFont:any;
 
 namespace project {
     /**
-    * メインとなるクラス
-    */
+     * メインとなるクラス
+     */
     export class Main {
         private _particleCreator:particle.ParticleCreator;
         private _loadingBarTask:ProgressLoadingBarTask;
@@ -27,8 +27,10 @@ namespace project {
             this.showContentsInfo();
         }
 
-        private showContentsInfo():void
-        {
+        /**
+         * コンテンツの情報を表示する
+         */
+        private showContentsInfo():void {
             this.checkDeviceInfo();
             this.checkLowPerformanceMode();
             let contentsInfo:HTMLDivElement = <HTMLDivElement> document.getElementById("contentsInfo");
@@ -39,8 +41,10 @@ namespace project {
             contentsInfo.innerHTML = contentsInfoText;
         }
 
-        private checkDeviceInfo():void
-        {
+        /**
+         * 閲覧環境をチェックする
+         */
+        private checkDeviceInfo():void {
             var ua:string = navigator.userAgent;
             if (ua.indexOf("iPhone") > 0 || ua.indexOf("iPad") > 0 || ua.indexOf("iPod") > 0)
                 Param.isIOS = true;
@@ -48,13 +52,15 @@ namespace project {
                 Param.isAndroid = true;
         }
 
-        private checkLowPerformanceMode():void
-        {
+        /**
+         * 低パフォーマンスで動作させるかどうかを決定する
+         * iOS、Androidの場合は低パフォーマンスモード
+         */
+        private checkLowPerformanceMode():void {
             let contentsInfo:HTMLDivElement = <HTMLDivElement> document.getElementById("contentsInfo");
             let activePlugin:string = createjs.Sound.activePlugin.toString();
             if (activePlugin.indexOf("HTMLAudio") > 0)
                 Param.isHTMLAudio = true;
-
 
             if (Param.isAndroid || Param.isIOS)
                 Param.lowPerformance = true;
@@ -110,13 +116,14 @@ namespace project {
             this._loadingBarTask.completeHandler();
         }
 
-        public start():void
-        {
+        public start():void {
             this._particleCreator.start();
         }
 
-        private showDownLoadInfo():void
-        {
+        /*
+        * ダウンロード情報を表示する。
+        */
+        private showDownLoadInfo():void {
             this._endTime = new Date();
             let downloadTime:number = (this._endTime.getTime() - this._startTime.getTime()) / 1000;
             let downloadInfo:HTMLDivElement = <HTMLDivElement> document.getElementById("downloadInfo");
@@ -128,5 +135,4 @@ namespace project {
 window.addEventListener("load", (event)=> {
     let main:project.Main = new project.Main();
     main.init();
-
 });

@@ -26,7 +26,6 @@ namespace project {
                 this._progressBar.style.opacity = "0";
                 this._progressBarLayer.className = "on";
                 this._progressBarLayer.addEventListener("click", () => this.playButtonTapHandler());
-
             }, 100);
         }
 
